@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiajiao.web.dao.ParentNeedMapper">
+  <resultMap id="BaseResultMap" type="com.jiajiao.web.pojo.ParentNeed">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="u_id" jdbcType="INTEGER" property="uId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="wechat" jdbcType="VARCHAR" property="wechat" />
+    <result column="student_class" jdbcType="INTEGER" property="studentClass" />
+    <result column="grade_condiction" jdbcType="VARCHAR" property="gradeCondiction" />
+    <result column="character_condiction" jdbcType="VARCHAR" property="characterCondiction" />
+    <result column="duration" jdbcType="REAL" property="duration" />
+    <result column="times" jdbcType="INTEGER" property="times" />
+    <result column="salary" jdbcType="REAL" property="salary" />
+    <result column="expect_goal" jdbcType="VARCHAR" property="expectGoal" />
+    <result column="location" jdbcType="VARCHAR" property="location" />
+    <result column="arrive_hours" jdbcType="REAL" property="arriveHours" />
+    <result column="education" jdbcType="INTEGER" property="education" />
+    <result column="teach_req" jdbcType="VARCHAR" property="teachReq" />
+    <result column="learn_condiction" jdbcType="VARCHAR" property="learnCondiction" />
+    <result column="expect_feedback" jdbcType="VARCHAR" property="expectFeedback" />
+    <result column="teach_by_self" jdbcType="VARCHAR" property="teachBySelf" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, u_id, name, wechat, student_class, grade_condiction, character_condiction, duration, 
+    times, salary, expect_goal, location, arrive_hours, education, teach_req, learn_condiction, 
+    expect_feedback, teach_by_self, create_time, update_time, status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from jiajiao_parent_need
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from jiajiao_parent_need
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jiajiao.web.pojo.ParentNeed"  useGeneratedKeys="true" keyProperty="id">
+    insert into jiajiao_parent_need (id, u_id, name, 
+      wechat, student_class, grade_condiction, 
+      character_condiction, duration, times, 
+      salary, expect_goal, location, 
+      arrive_hours, education, teach_req, 
+      learn_condiction, expect_feedback, teach_by_self, 
+      create_time, update_time, status
+      )
+    values (#{id,jdbcType=INTEGER}, #{uId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{wechat,jdbcType=VARCHAR}, #{studentClass,jdbcType=INTEGER}, #{gradeCondiction,jdbcType=VARCHAR}, 
+      #{characterCondiction,jdbcType=VARCHAR}, #{duration,jdbcType=REAL}, #{times,jdbcType=INTEGER}, 
+      #{salary,jdbcType=REAL}, #{expectGoal,jdbcType=VARCHAR}, #{location,jdbcType=VARCHAR}, 
+      #{arriveHours,jdbcType=REAL}, #{education,jdbcType=INTEGER}, #{teachReq,jdbcType=VARCHAR}, 
+      #{learnCondiction,jdbcType=VARCHAR}, #{expectFeedback,jdbcType=VARCHAR}, #{teachBySelf,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jiajiao.web.pojo.ParentNeed" useGeneratedKeys="true" keyProperty="id" >
+    insert into jiajiao_parent_need
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="uId != null">
+        u_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="wechat != null">
+        wechat,
+      </if>
+      <if test="studentClass != null">
+        student_class,
+      </if>
+      <if test="gradeCondiction != null">
+        grade_condiction,
+      </if>
+      <if test="characterCondiction != null">
+        character_condiction,
+      </if>
+      <if test="duration != null">
+        duration,
+      </if>
+      <if test="times != null">
+        times,
+      </if>
+      <if test="salary != null">
+        salary,
+      </if>
+      <if test="expectGoal != null">
+        expect_goal,
+      </if>
+      <if test="location != null">
+        location,
+      </if>
+      <if test="arriveHours != null">
+        arrive_hours,
+      </if>
+      <if test="education != null">
+        education,
+      </if>
+      <if test="teachReq != null">
+        teach_req,
+      </if>
+      <if test="learnCondiction != null">
+        learn_condiction,
+      </if>
+      <if test="expectFeedback != null">
+        expect_feedback,
+      </if>
+      <if test="teachBySelf != null">
+        teach_by_self,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="uId != null">
+        #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null">
+        #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="studentClass != null">
+        #{studentClass,jdbcType=INTEGER},
+      </if>
+      <if test="gradeCondiction != null">
+        #{gradeCondiction,jdbcType=VARCHAR},
+      </if>
+      <if test="characterCondiction != null">
+        #{characterCondiction,jdbcType=VARCHAR},
+      </if>
+      <if test="duration != null">
+        #{duration,jdbcType=REAL},
+      </if>
+      <if test="times != null">
+        #{times,jdbcType=INTEGER},
+      </if>
+      <if test="salary != null">
+        #{salary,jdbcType=REAL},
+      </if>
+      <if test="expectGoal != null">
+        #{expectGoal,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null">
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="arriveHours != null">
+        #{arriveHours,jdbcType=REAL},
+      </if>
+      <if test="education != null">
+        #{education,jdbcType=INTEGER},
+      </if>
+      <if test="teachReq != null">
+        #{teachReq,jdbcType=VARCHAR},
+      </if>
+      <if test="learnCondiction != null">
+        #{learnCondiction,jdbcType=VARCHAR},
+      </if>
+      <if test="expectFeedback != null">
+        #{expectFeedback,jdbcType=VARCHAR},
+      </if>
+      <if test="teachBySelf != null">
+        #{teachBySelf,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jiajiao.web.pojo.ParentNeed">
+    update jiajiao_parent_need
+    <set>
+      <if test="uId != null">
+        u_id = #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="wechat != null">
+        wechat = #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="studentClass != null">
+        student_class = #{studentClass,jdbcType=INTEGER},
+      </if>
+      <if test="gradeCondiction != null">
+        grade_condiction = #{gradeCondiction,jdbcType=VARCHAR},
+      </if>
+      <if test="characterCondiction != null">
+        character_condiction = #{characterCondiction,jdbcType=VARCHAR},
+      </if>
+      <if test="duration != null">
+        duration = #{duration,jdbcType=REAL},
+      </if>
+      <if test="times != null">
+        times = #{times,jdbcType=INTEGER},
+      </if>
+      <if test="salary != null">
+        salary = #{salary,jdbcType=REAL},
+      </if>
+      <if test="expectGoal != null">
+        expect_goal = #{expectGoal,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null">
+        location = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="arriveHours != null">
+        arrive_hours = #{arriveHours,jdbcType=REAL},
+      </if>
+      <if test="education != null">
+        education = #{education,jdbcType=INTEGER},
+      </if>
+      <if test="teachReq != null">
+        teach_req = #{teachReq,jdbcType=VARCHAR},
+      </if>
+      <if test="learnCondiction != null">
+        learn_condiction = #{learnCondiction,jdbcType=VARCHAR},
+      </if>
+      <if test="expectFeedback != null">
+        expect_feedback = #{expectFeedback,jdbcType=VARCHAR},
+      </if>
+      <if test="teachBySelf != null">
+        teach_by_self = #{teachBySelf,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jiajiao.web.pojo.ParentNeed">
+    update jiajiao_parent_need
+    set u_id = #{uId,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      wechat = #{wechat,jdbcType=VARCHAR},
+      student_class = #{studentClass,jdbcType=INTEGER},
+      grade_condiction = #{gradeCondiction,jdbcType=VARCHAR},
+      character_condiction = #{characterCondiction,jdbcType=VARCHAR},
+      duration = #{duration,jdbcType=REAL},
+      times = #{times,jdbcType=INTEGER},
+      salary = #{salary,jdbcType=REAL},
+      expect_goal = #{expectGoal,jdbcType=VARCHAR},
+      location = #{location,jdbcType=VARCHAR},
+      arrive_hours = #{arriveHours,jdbcType=REAL},
+      education = #{education,jdbcType=INTEGER},
+      teach_req = #{teachReq,jdbcType=VARCHAR},
+      learn_condiction = #{learnCondiction,jdbcType=VARCHAR},
+      expect_feedback = #{expectFeedback,jdbcType=VARCHAR},
+      teach_by_self = #{teachBySelf,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectByOutKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from jiajiao_parent_need
+    where u_id = #{u_id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from jiajiao_parent_need
+  </select>
+  <select id="selectAllByOrder" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from jiajiao_parent_need n1
+    <if test="parentNeedOrder!=null">
+      <where>
+        <if test="parentNeedOrder.times!=0">
+          and times &lt;= #{parentNeedOrder.times}
+        </if>
+        <if test="parentNeedOrder.ableClass!=0">
+          and student_class &lt;= #{parentNeedOrder.ableClass}
+        </if>
+        <if test="parentNeedOrder.freeTime!=null and parentNeedOrder.freeTime.size!=0">
+          and n1.id in
+          (SELECT t1.out_id FROM jiajiao_time t1 WHERE t1.TYPE =0 AND t1.free_time IN
+          <foreach collection="parentNeedOrder.freeTime" item="item" open="(" close=")" separator=",">
+            #{item}
+          </foreach>
+          GROUP BY t1.out_id HAVING COUNT(t1.free_time)=${parentNeedOrder.freeTime.size})
+        </if>
+        <if test="parentNeedOrder.name!=null and parentNeedOrder.name.size!=0">
+          and n1.id in
+          (SELECT s1.out_id FROM jiajiao_subject s1 WHERE s1.TYPE =0 AND s1.name IN
+          <foreach collection="parentNeedOrder.name" item="item" open="(" close=")" separator=",">
+            #{item}
+          </foreach>
+          GROUP BY s1.out_id HAVING COUNT(s1.name)=${parentNeedOrder.name.size})
+        </if>
+      </where>
+      order by
+      <if test="parentNeedOrder.salary == 0">
+        null,
+      </if>
+      <if test="parentNeedOrder.salary == 1">
+        salary ASC ,
+      </if>
+      <if test="parentNeedOrder.salary == 2">
+        salary DESC ,
+      </if>
+      <if test="parentNeedOrder.updateTime == 0">
+        null
+      </if>
+      <if test="parentNeedOrder.updateTime == 1">
+        update_time ASC
+      </if>
+      <if test="parentNeedOrder.updateTime == 2">
+        update_time DESC
+      </if>
+    </if>
+
+  </select>
+  <select id="selectAllByOrderCount" resultType="java.lang.Integer">
+    select
+      count(*)
+    from jiajiao_parent_need n1
+    <if test="parentNeedOrder!=null">
+      <where>
+        <if test="parentNeedOrder.times!=0">
+          and times &lt;= #{parentNeedOrder.times}
+        </if>
+        <if test="parentNeedOrder.ableClass!=0">
+          and student_class &lt;= #{parentNeedOrder.ableClass}
+        </if>
+        <if test="parentNeedOrder.freeTime!=null and parentNeedOrder.freeTime.size!=0">
+          and n1.id in
+          (SELECT t1.out_id FROM jiajiao_time t1 WHERE t1.TYPE =0 AND t1.free_time IN
+          <foreach collection="parentNeedOrder.freeTime" item="item" open="(" close=")" separator=",">
+            #{item}
+          </foreach>
+          GROUP BY t1.out_id HAVING COUNT(t1.free_time)=${parentNeedOrder.freeTime.size})
+        </if>
+        <if test="parentNeedOrder.name!=null and parentNeedOrder.name.size!=0">
+          and n1.id in
+          (SELECT s1.out_id FROM jiajiao_subject s1 WHERE s1.TYPE =0 AND s1.name IN
+          <foreach collection="parentNeedOrder.name" item="item" open="(" close=")" separator=",">
+            #{item}
+          </foreach>
+          GROUP BY s1.out_id HAVING COUNT(s1.name)=${parentNeedOrder.name.size})
+        </if>
+      </where>
+    </if>
+
+  </select>
+  <select id="selectByIdList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from jiajiao_parent_need
+    where id in
+    <foreach collection="idList" open="(" separator="," close=")" item="id">
+      #{id}
+    </foreach>
+  </select>
+  <select id="selectParentNeedSum" resultType="java.lang.Integer">
+    select count(*) from jiajiao_parent_need
+  </select>
+</mapper>

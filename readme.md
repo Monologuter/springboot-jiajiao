@@ -1,0 +1,19 @@
+前后端分离家教系统
+前端使用的是vuejs
+后端使用的是springboot
+数据库使用的是mysql 版本是8.0
+缓存使用的是redis
+集成了阿里云的短信服务
+登录可以使用账号和密码登录 
+也可以使用短信验证码进行登录
+使用maven进行项目的构建
+该系统分为多个角色
+属于校园家教系统的一个良好的范例
+可以适用于毕业设计以及课程设计等
+代码注释详细
+代码量足
+![2021年09月16日15时:58分:13秒](https://cyymacbookpro.oss-cn-shanghai.aliyuncs.com/Macbookpro/2021年09月16日15时:58分:13秒)
+![2021年09月16日15时:58分:25秒](https://cyymacbookpro.oss-cn-shanghai.aliyuncs.com/Macbookpro/2021年09月16日15时:58分:25秒)
+![2021年09月16日15时:58分:35秒](https://cyymacbookpro.oss-cn-shanghai.aliyuncs.com/Macbookpro/2021年09月16日15时:58分:35秒)
+![2021年09月16日15时:58分:49秒](https://cyymacbookpro.oss-cn-shanghai.aliyuncs.com/Macbookpro/2021年09月16日15时:58分:49秒)
+![2021年09月16日15时:59分:04秒](https://cyymacbookpro.oss-cn-shanghai.aliyuncs.com/Macbookpro/2021年09月16日15时:59分:04秒)

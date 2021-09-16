@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiajiao.web.dao.StudentResumeMapper">
+  <resultMap id="BaseResultMap" type="com.jiajiao.web.pojo.StudentResume">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="u_id" jdbcType="INTEGER" property="uId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="wechat" jdbcType="VARCHAR" property="wechat" />
+    <result column="academy_id" jdbcType="VARCHAR" property="academyId" />
+    <result column="salary" jdbcType="REAL" property="salary" />
+    <result column="able_class" jdbcType="INTEGER" property="ableClass" />
+    <result column="character_condiction" jdbcType="VARCHAR" property="characterCondiction" />
+    <result column="grade" jdbcType="REAL" property="grade" />
+    <result column="teach_stress" jdbcType="VARCHAR" property="teachStress" />
+    <result column="teach_goal" jdbcType="VARCHAR" property="teachGoal" />
+    <result column="feedback" jdbcType="VARCHAR" property="feedback" />
+    <result column="university" jdbcType="VARCHAR" property="university" />
+    <result column="education" jdbcType="INTEGER" property="education" />
+    <result column="hobby" jdbcType="VARCHAR" property="hobby" />
+    <result column="learn_methods" jdbcType="VARCHAR" property="learnMethods" />
+    <result column="show_self" jdbcType="VARCHAR" property="showSelf" />
+    <result column="motto" jdbcType="VARCHAR" property="motto" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, u_id, name, sex, wechat, academy_id, salary, able_class, character_condiction, 
+    grade, teach_stress, teach_goal, feedback, university, education, hobby, learn_methods, 
+    show_self, motto, create_time, update_time, status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from jiajiao_student_resume
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from jiajiao_student_resume
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jiajiao.web.pojo.StudentResume" useGeneratedKeys="true" keyProperty="id" >
+    insert into jiajiao_student_resume (id, u_id, name, 
+      sex, wechat, academy_id, 
+      salary, able_class, character_condiction, 
+      grade, teach_stress, teach_goal, 
+      feedback, university, education, 
+      hobby, learn_methods, show_self, 
+      motto, create_time, update_time, 
+      status)
+    values (#{id,jdbcType=INTEGER}, #{uId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=INTEGER}, #{wechat,jdbcType=VARCHAR}, #{academyId,jdbcType=VARCHAR}, 
+      #{salary,jdbcType=REAL}, #{ableClass,jdbcType=INTEGER}, #{characterCondiction,jdbcType=VARCHAR}, 
+      #{grade,jdbcType=REAL}, #{teachStress,jdbcType=VARCHAR}, #{teachGoal,jdbcType=VARCHAR}, 
+      #{feedback,jdbcType=VARCHAR}, #{university,jdbcType=VARCHAR}, #{education,jdbcType=INTEGER}, 
+      #{hobby,jdbcType=VARCHAR}, #{learnMethods,jdbcType=VARCHAR}, #{showSelf,jdbcType=VARCHAR}, 
+      #{motto,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jiajiao.web.pojo.StudentResume" useGeneratedKeys="true" keyProperty="id" >
+    insert into jiajiao_student_resume
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="uId != null">
+        u_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="wechat != null">
+        wechat,
+      </if>
+      <if test="academyId != null">
+        academy_id,
+      </if>
+      <if test="salary != null">
+        salary,
+      </if>
+      <if test="ableClass != null">
+        able_class,
+      </if>
+      <if test="characterCondiction != null">
+        character_condiction,
+      </if>
+      <if test="grade != null">
+        grade,
+      </if>
+      <if test="teachStress != null">
+        teach_stress,
+      </if>
+      <if test="teachGoal != null">
+        teach_goal,
+      </if>
+      <if test="feedback != null">
+        feedback,
+      </if>
+      <if test="university != null">
+        university,
+      </if>
+      <if test="education != null">
+        education,
+      </if>
+      <if test="hobby != null">
+        hobby,
+      </if>
+      <if test="learnMethods != null">
+        learn_methods,
+      </if>
+      <if test="showSelf != null">
+        show_self,
+      </if>
+      <if test="motto != null">
+        motto,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="uId != null">
+        #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="wechat != null">
+        #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="academyId != null">
+        #{academyId,jdbcType=VARCHAR},
+      </if>
+      <if test="salary != null">
+        #{salary,jdbcType=REAL},
+      </if>
+      <if test="ableClass != null">
+        #{ableClass,jdbcType=INTEGER},
+      </if>
+      <if test="characterCondiction != null">
+        #{characterCondiction,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null">
+        #{grade,jdbcType=REAL},
+      </if>
+      <if test="teachStress != null">
+        #{teachStress,jdbcType=VARCHAR},
+      </if>
+      <if test="teachGoal != null">
+        #{teachGoal,jdbcType=VARCHAR},
+      </if>
+      <if test="feedback != null">
+        #{feedback,jdbcType=VARCHAR},
+      </if>
+      <if test="university != null">
+        #{university,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        #{education,jdbcType=INTEGER},
+      </if>
+      <if test="hobby != null">
+        #{hobby,jdbcType=VARCHAR},
+      </if>
+      <if test="learnMethods != null">
+        #{learnMethods,jdbcType=VARCHAR},
+      </if>
+      <if test="showSelf != null">
+        #{showSelf,jdbcType=VARCHAR},
+      </if>
+      <if test="motto != null">
+        #{motto,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jiajiao.web.pojo.StudentResume">
+    update jiajiao_student_resume
+    <set>
+      <if test="uId != null">
+        u_id = #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="wechat != null">
+        wechat = #{wechat,jdbcType=VARCHAR},
+      </if>
+      <if test="academyId != null">
+        academy_id = #{academyId,jdbcType=VARCHAR},
+      </if>
+      <if test="salary != null">
+        salary = #{salary,jdbcType=REAL},
+      </if>
+      <if test="ableClass != null">
+        able_class = #{ableClass,jdbcType=INTEGER},
+      </if>
+      <if test="characterCondiction != null">
+        character_condiction = #{characterCondiction,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null">
+        grade = #{grade,jdbcType=REAL},
+      </if>
+      <if test="teachStress != null">
+        teach_stress = #{teachStress,jdbcType=VARCHAR},
+      </if>
+      <if test="teachGoal != null">
+        teach_goal = #{teachGoal,jdbcType=VARCHAR},
+      </if>
+      <if test="feedback != null">
+        feedback = #{feedback,jdbcType=VARCHAR},
+      </if>
+      <if test="university != null">
+        university = #{university,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        education = #{education,jdbcType=INTEGER},
+      </if>
+      <if test="hobby != null">
+        hobby = #{hobby,jdbcType=VARCHAR},
+      </if>
+      <if test="learnMethods != null">
+        learn_methods = #{learnMethods,jdbcType=VARCHAR},
+      </if>
+      <if test="showSelf != null">
+        show_self = #{showSelf,jdbcType=VARCHAR},
+      </if>
+      <if test="motto != null">
+        motto = #{motto,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jiajiao.web.pojo.StudentResume">
+    update jiajiao_student_resume
+    set u_id = #{uId,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=INTEGER},
+      wechat = #{wechat,jdbcType=VARCHAR},
+      academy_id = #{academyId,jdbcType=VARCHAR},
+      salary = #{salary,jdbcType=REAL},
+      able_class = #{ableClass,jdbcType=INTEGER},
+      character_condiction = #{characterCondiction,jdbcType=VARCHAR},
+      grade = #{grade,jdbcType=REAL},
+      teach_stress = #{teachStress,jdbcType=VARCHAR},
+      teach_goal = #{teachGoal,jdbcType=VARCHAR},
+      feedback = #{feedback,jdbcType=VARCHAR},
+      university = #{university,jdbcType=VARCHAR},
+      education = #{education,jdbcType=INTEGER},
+      hobby = #{hobby,jdbcType=VARCHAR},
+      learn_methods = #{learnMethods,jdbcType=VARCHAR},
+      show_self = #{showSelf,jdbcType=VARCHAR},
+      motto = #{motto,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectByUId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from jiajiao_student_resume
+    where u_id = #{u_id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAllByOrder" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from jiajiao_student_resume r1
+    <if test="resumeOrderVo!=null">
+      <where>
+        <if test="resumeOrderVo.ableClass != null ">
+          and able_class >= #{resumeOrderVo.ableClass}
+        </if>
+        <if test="resumeOrderVo.academyId !=null ">
+          and academy_id LIKE CONCAT('%',#{resumeOrderVo.academyId},'%')
+        </if>
+        <if test="resumeOrderVo.sex == 1">
+          and sex = 1
+        </if>
+        <if test="resumeOrderVo.sex == 2">
+          and sex = 2
+        </if>
+        <if test="resumeOrderVo.freeTime!=null and resumeOrderVo.freeTime.size!=0">
+          and r1.id in
+            (SELECT t1.out_id FROM jiajiao_time t1 WHERE t1.TYPE =1 AND t1.free_time IN
+             <foreach collection="resumeOrderVo.freeTime" item="item" open="(" close=")" separator=",">
+               #{item}
+             </foreach>
+             GROUP BY t1.out_id HAVING COUNT(t1.free_time)=${resumeOrderVo.freeTime.size})
+        </if>
+        <if test="resumeOrderVo.name!=null and resumeOrderVo.name.size!=0">
+          and r1.id in
+          (SELECT s1.out_id FROM jiajiao_subject s1 WHERE s1.TYPE =1 AND s1.name IN
+          <foreach collection="resumeOrderVo.name" item="item" open="(" close=")" separator=",">
+            #{item}
+          </foreach>
+          GROUP BY s1.out_id HAVING COUNT(s1.name)=${resumeOrderVo.name.size})
+        </if>
+      </where>
+      order by
+      <if test="resumeOrderVo.updateTime == 0">
+        null,
+      </if>
+      <if test="resumeOrderVo.updateTime == 1">
+        update_time ASC,
+      </if>
+      <if test="resumeOrderVo.updateTime == 2">
+        update_time DESC,
+      </if>
+      <if test="resumeOrderVo.salary == 0">
+        null,
+      </if>
+      <if test="resumeOrderVo.salary == 1">
+        salary ASC,
+      </if>
+      <if test="resumeOrderVo.salary == 2">
+        salary DESC,
+      </if>
+      <if test="resumeOrderVo.education == 0">
+        null
+      </if>
+      <if test="resumeOrderVo.education == 1">
+        education ASC
+      </if>
+      <if test="resumeOrderVo.education == 2">
+        education DESC
+      </if>
+    </if>
+  </select>
+
+  <select id="selectAllByOrderCount" resultType="java.lang.Integer">
+    select
+      count(*)
+    from jiajiao_student_resume r1
+    <if test="resumeOrderVo!=null">
+      <where>
+        <if test="resumeOrderVo.ableClass != null ">
+          and able_class >= #{resumeOrderVo.ableClass}
+        </if>
+        <if test="resumeOrderVo.academyId !=null ">
+          and academy_id LIKE CONCAT('%',#{resumeOrderVo.academyId},'%')
+        </if>
+        <if test="resumeOrderVo.sex == 1">
+          and sex = 1
+        </if>
+        <if test="resumeOrderVo.sex == 2">
+          and sex = 2
+        </if>
+        <if test="resumeOrderVo.freeTime!=null and resumeOrderVo.freeTime.size!=0">
+          and r1.id in
+          (SELECT t1.out_id FROM jiajiao_time t1 WHERE t1.TYPE =1 AND t1.free_time IN
+          <foreach collection="resumeOrderVo.freeTime" item="item" open="(" close=")" separator=",">
+            #{item}
+          </foreach>
+          GROUP BY t1.out_id HAVING COUNT(t1.free_time)=${resumeOrderVo.freeTime.size})
+        </if>
+        <if test="resumeOrderVo.name!=null and resumeOrderVo.name.size!=0">
+          and r1.id in
+          (SELECT s1.out_id FROM jiajiao_subject s1 WHERE s1.TYPE =1 AND s1.name IN
+          <foreach collection="resumeOrderVo.name" item="item" open="(" close=")" separator=",">
+            #{item}
+          </foreach>
+          GROUP BY s1.out_id HAVING COUNT(s1.name)=${resumeOrderVo.name.size})
+        </if>
+      </where>
+    </if>
+  </select>
+  <select id="selectByIdList" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from jiajiao_student_resume
+    where id in
+    <foreach collection="idList" open="(" separator="," close=")" item="id">
+      #{id}
+    </foreach>
+  </select>
+  <select id="selectStudentResumeSum" resultType="java.lang.Integer">
+    select count(*) from jiajiao_student_resume
+  </select>
+</mapper>
